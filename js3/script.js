@@ -1,12 +1,12 @@
 function toggleContent(number) {
     var content = document.getElementById('content' + number);
-    var arrow = document.querySelector('h1:nth-child(' + (number * 2) + ')');
+    var arrow = document.getElementById('arrow(' + (number) + ')');
 
     if (content.style.display === 'none' || content.style.display === '') {
         content.style.display = 'block';
-        arrow.innerHTML = '&#8613; Bajka nr ' + number;
+        arrow.innerHTML = '&#8613';
     } else {
-        content.style.display = 'none';
-        arrow.innerHTML = '&#8615; Bajka nr ' + number;
+        content.style.display = 'none' ;
+        arrow.innerHTML = '&#8615';
     }
 }
