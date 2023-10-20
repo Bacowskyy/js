@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+	*{
+	margin:0px;
+	}
+		#but1{
+		height:120px;
+		width:240px;
+		}
+    </style>
+</head>
+<body>
+    
+	<input type="button" value="Kolor sufitu" id="but1" onclick="myFunction()">
+
+    <script>
+	
+	function myFunction() {
+	let text;
+	let komunikat1 = prompt("Podaj kolor sufitu");
+	if (komunikat1 == null || komunikat1 == ""){
+		text = "Nie ma koloru";
+	} else{
+		alert('Twój kolor to: ' + komunikat1)
+	}
+	
+	}
+	
+	</script>
+</body>
+</html>
