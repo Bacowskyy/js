@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <textarea style="display: block" onfocus="this.style.backgroundColor='yellow'"></textarea>
+<p>
+    <input type="text" style="display: block" onblur="this.value=this.value.toUpperCase()">
+</p>
+<p>
+  <select onchange="this.style.color=this.value">
+      <option value="black">black</option>
+      <option value="brown">brown</option>
+      <option value="blue" >blue</option>
+      <option value="blueviolet" >blueviolet</option>
+      <option value="burlywood">burlywood</option>
+      <option value="bisque">bisque</option>
+  </select>
+</p>
+
+<p style="display: block" onclick="this.style.fontSize='xx-large'" ondblclick="this.style.fontSize='medium'">
+    Bieluch czekoladowy
+</p>
+</div>
+<div>
+    <img src="bieluch.webp" style="height: 500px ;width: 500px;" oncontextmenu="alert(this.src)" >
+</div>
+<div>
+    <input type="text" onkeyup="document.getElementById('p1').innerText=this.value">
+    <p id="p1"></p>
+</div>
+<h3 style="display: block ;color: green" onmouseout="this.style.textShadow='black 0px 0 0px '" onmouseover="this.style.textShadow='green 2px 2px 5px '">Arquel szef klubu r</h3>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="obrazek">
+        <img src="zarowecdzka.jfif" alt="Obrazek 1">
+      </div>
+      <button id="przycisk1">Włącz</button>
+      <button id="przycisk2">Wyłącz</button>      
+    <script>
+// Pobieramy elementy z dokumentu
+var obrazek = document.getElementById("obrazek");
+var przycisk1 = document.getElementById("przycisk1");
+var przycisk2 = document.getElementById("przycisk2");
+
+// Funkcja do podmiany obrazka na obrazek2.jpg
+function wlaczObrazek() {
+  obrazek.innerHTML = "<img src='zarowecdzka.jfif' alt='Obrazek 2'>";
+}
+
+// Funkcja do podmiany obrazka na obrazek1.jpg
+function wylaczObrazek() {
+  obrazek.innerHTML = "<img src='zgaszone.jpg' alt='Obrazek 1'>";
+}
+
+// Dodajemy nasłuchiwanie zdarzenia kliknięcia na przyciski
+przycisk1.addEventListener("click", wlaczObrazek);
+przycisk2.addEventListener("click", wylaczObrazek);
+    </script> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Opis zawartości strony">
+  	<title>Skrypt</title>
+</head>
+<body>
+    <?php
+
+  	$naz=$_POST['nazwisko'];
+	$imi=$_POST['imie'];
+	$uid=$_POST['userid'];
+	$tit=$_POST['title'];
+	$did=$_POST['dept_id'];
+  	$sal=$_POST['salary'];
+	$sdt=$_POST['start_dt'];
+	$mid=$_POST['man_id'];
+	$uwa=$_POST['uwagi'];
+
+        echo '    Nazwisko: ' . $naz . '<br>';
+        echo '        Imię: ' . $imi . '<br>';
+
+        ini_set('display_errors', '0');
+        mysqli_report(MYSQLI_REPORT_ERROR);
+
+        $host  = 'localhost'; 
+        $user  = 'root';
+        $haslo = '';
+        $baza  = 'baza testowa';
+        
+        $id_conn = mysqli_connect($host, $user, $haslo, $baza);
+        if (mysqli_connect_errno()) 
+        {
+            echo "Błąd połączenia z MySQL z bazą: " . $baza . ' (' . mysqli_connect_error() . ')';
+            exit;
+        }
+##### STANOWISKO #####
+$sql_tit = "SELECT name FROM title;";
+$wyn_tit = mysqli_query($id_conn, $sql_tit);
+if (mysqli_error($id_conn))
+{
+echo "Błąd w zapytania o stanowiska: " . $baza . ' (' . mysqli_error($id_conn) . ')';
+mysqli_close($id_conn);
+}
+$ok_tit=0;
+$title = '';
+while($w_tit=mysqli_fetch_array($wyn_tit)){
+if ($w_tit['name']==$tit) {
+$ok_tit=1;
+}
+$title = $title . ', <br> -' . $w_tit['name'];
+}
+if ($ok_tit==0) {
+echo 'nie ma stanowiska "' . $tit . '", wybierz jedno z poniższych: ';
+echo '<br>' . substr($title,6);
+mysqli_close($id_conn);
+exit;
+}
+
+        $sql_ins = "INSERT INTO emp (id, first_name, last_name, userid, title, dept_id, 
+                                     salary, start_date, manager_id, comments) 
+                    VALUES (Null, '$imi','$naz','$uid','$tit','$did', 
+                            '$sal', '$sdt','$mid', '$uwa' );
+		   ";
+        if (!mysqli_query($id_conn, $sql_ins))
+ 	{
+             echo 'Błąd zapisu do bazy:' . mysqli_error($id_conn);
+             mysqli_close($id_conn)  # zamyka połączenie z bazą
+     	        or die("Nie można się rozłączyć z bazą MySQL!!");
+             exit;
+        }
+        mysqli_close($id_conn);
+    ?>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+$naz=$_POST['nazwisko'];
+$imi=$_POST['imie'];
+$uid=$_POST['userid'];
+$tit=$_POST['title'];
+$did=$_POST['dept_id'];
+$sal=$_POST['salary'];
+$sdt=$_POST['start_dt'];
+$mid=$_POST['man_id'];
+$uwa=$_POST['uwagi'];
+
+echo '    Nazwisko: ' . $naz . '<br>';
+echo '        Imię: ' . $imi . '<br>';
+
+ini_set('display_errors', '0');
+mysqli_report(MYSQLI_REPORT_ERROR);
+
+$host  = 'localhost';
+$user  = 'root';
+$haslo = '';
+$baza  = 'baza_testowa';
+
+$id_conn=mysqli_connect('localhost','root','','baza_testowa');
+if (mysqli_connect_errno())
+{
+    echo "Błąd połączenia z MySQL z bazą: " . $baza . ' (' . mysqli_connect_error() . ')';
+    exit;
+}
+
+$sql_ins = "INSERT INTO emp (id, first_name, last_name, userid, title, dept_id, 
+                                     salary, start_date, manager_id, comments) 
+                    VALUES (Null, '$imi','$naz','$uid','$tit','$did', 
+                            '$sal', '$sdt','$mid', '$uwa' );
+		   ";
+if (!mysqli_query($id_conn, $sql_ins))
+{
+    echo 'Błąd zapisu do bazy:' . mysqli_error($id_conn);
+    mysqli_close($id_conn)  # zamyka połączenie z bazą
+    or die("Nie można się rozłączyć z bazą MySQL!!");
+    exit;
+}
+mysqli_close($id_conn);
+?>

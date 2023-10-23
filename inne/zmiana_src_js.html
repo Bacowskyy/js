@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+<style>
+* {
+padding: 0;
+margin: 0;
+text-align: center;
+}
+
+img{
+width: 100%;
+height: 100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<img id="img" src="apache1.jpg">
+<input type="button" value="Prawo" onclick="myFunction1()" id="butt1">
+<input type="button" value="Lewo" onclick="myFunction2()" id="butt2"><br>
+
+<input name="rad1" type="radio" onclick="myFunction1()" id="butt1" checked="checked"><label>Prawo</label>
+<input name="rad1" type="radio" onclick="myFunction2()" id="butt2"><label>Lewo</label><br>
+
+<input type="checkbox" value="Prawo" onclick="myFunction()" id="butt" checked="true"><a id="apo">Prawo</a>
+
+
+
+<script>
+
+
+function myFunction1() {
+   document.getElementById('img').src="apache1.jpg";
+   
+}
+function myFunction2() {
+   document.getElementById('img').src="apache2.jpg";
+   
+}
+
+
+	
+
+function myFunction() {
+
+	var apo = document.getElementById('apo');
+    var butt = document.getElementById('butt');
+
+	if(butt.checked = 'true'){
+   document.getElementById('img').src="apache2.jpg";
+   apo.innerText = 'Lewo';
+   butt.checked.innerHTML = 'false';
+   
+   } else{
+   document.getElementById('img').src="apache1.jpg";
+   apo.innerText = 'Prawo';
+   butt.checked.innerHTML = 'true';
+   
+   }
+}
+
+
+
+</script>
+
+</body>
+</html>
