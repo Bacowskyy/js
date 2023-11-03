@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wycinanie tekstu</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+
+<p id="tekst">Mikołaj Kopernik - polski polihistor pochodzenia niemieckiego</p>
+<input type="button" value="Wytnij znaki od 26 do 36" id="butt1" onclick="butt1()">
+<input type="button" value="Wytnij znaki od końca: od 5 do12" id="butt2" onclick="butt2()">
+<p id="fin"></p>
+
+    <script>
+	
+	
+	function butt1(){
+		let txt = document.getElementById("tekst").innerText;
+		let slice = txt.slice(26, 36);
+		alert(slice)
+		
+	}
+	
+
+	
+	
+	</script>
+</body>
+</html>

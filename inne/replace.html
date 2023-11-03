@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replace</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+
+<p id="txt">Microsoft Edge - przeglądarka internetowa firmy Microsoft</p>
+<input type="button" value="Zastąp pierwsze słowo 'Microsoft' słowem 'Januszex'" id="butt1" onclick="butt1()">
+<input type="button" value="Zastąp słowo 'Edge' słowem 'Janusz Explorer'" id="butt2" onclick="butt2()">
+<p id="fin"></p>
+
+    <script>
+	
+	
+	function butt1(){
+		let txt = document.getElementById("txt").innerText;
+		let rep = txt.replace("Microsoft", "Januszex");
+		alert(rep)
+		
+	}
+	
+	function butt2(){
+		let txt = document.getElementById("txt").innerText;
+		let rep2 = txt.replace("Edge", "Janusz Explorer");
+		alert(rep2)
+		
+	}
+	
+
+	
+	
+	</script>
+</body>
+</html>
