@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+
+</style>
+
+</head>
+
+
+<body>
+
+<fieldset>
+<legend>Funkcja padStart() i padEnd()</legend>
+<a id="txt">Stefan Banach</a><br>
+<input type="button" value="Wypełnij tekst na początku podkreśleniami, aby miał długość 20 znaków" onclick="padStart()"><br>
+<input type="button" value="Wypełnij tekst na końcu kropkami, aby miał długość 30 znaków" onclick="padEnd()"><br>
+</fieldset>
+
+
+<script>
+
+
+const txt = document.getElementById("txt").innerText;
+
+function padStart(){
+	document.getElementById("txt").innerHTML = txt.padStart(20, "_");
+	
+}
+
+function padEnd(){
+	document.getElementById("txt").innerHTML = txt.padEnd(20, ".");
+	
+}
+
+
+
+</script>
+
+</body>
+</html>

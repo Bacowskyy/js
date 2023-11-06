@@ -1,0 +1,74 @@
+	<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+#div1{
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+<fieldset>
+<legend>Skład Deep Purple</legend>
+<p id="txt">Deep Purple - brytyjski zespół rockowy, założony w 1968 roku w składzie:
+<a id="p1" style="display:none;"> Ritchie Blackmore,</a>
+<a id="p2" style="display:none;"> Jon Lord,</a>
+<a id="p3" style="display:none;"> Nick Simper,</a>
+<a id="p4" style="display:none;"> Ian Paice,</a>
+<a id="p5" style="display:none;"> Rod Evans.</a>
+</p>
+<br>
+<div id="div1">
+<input type="button" value="Doklej tekst: Ritchie Blackmore" onclick="doklej1(); this.onclick=null;"><br>
+<input type="button" value="Doklej tekst: Jon Lord" onclick="doklej2(); this.onclick=null;"><br>
+<input type="button" value="Doklej tekst: Nick Simper" onclick="doklej3(); this.onclick=null;"><br>
+<input type="button" value="Doklej tekst: Ian Paice" onclick="doklej4(); this.onclick=null;"><br>
+<input type="button" value="Doklej tekst: Rod Evans" onclick="doklej5(); this.onclick=null;"><br>
+</div>
+</fieldset>
+
+
+<script>
+
+
+
+
+
+
+function doklej1(){
+	document.getElementById("p1").style.display = "inline";
+}
+
+
+function doklej2(){
+	document.getElementById("p2").style.display = "inline";
+	
+}
+
+function doklej3(){
+	document.getElementById("p3").style.display = "inline";
+	
+}
+
+function doklej4(){
+	document.getElementById("p4").style.display = "inline";
+	
+}
+
+function doklej5(){
+	document.getElementById("p5").style.display = "inline";
+	
+}
+
+
+
+</script>
+
+</body>
+</html>

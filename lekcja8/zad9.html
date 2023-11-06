@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+
+</style>
+
+</head>
+
+
+<body>
+
+<fieldset>
+<legend>Funkcja split()</legend>
+<a id="txt">0|1|1|2|3|5|8</a><br>
+<input type="button" value="Utwórz tablicę liczb i wyświetl ją w konsoli" onclick="split()"><br>
+
+</fieldset>
+
+
+<script>
+
+
+const txt = document.getElementById("txt").innerText;
+
+function split(){
+	const mySplit = txt.split("|");
+	console.log(document.getElementById("txt").innerText = mySplit);
+
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+
+</style>
+
+</head>
+
+
+<body>
+
+<fieldset>
+<legend>Funkcja concat</legend>
+<a id="txt">Czuwaj</a><br>
+<input type="button" value="Doklej wykrzyknik (!) na końcu tekstu" onclick="concat()"><br>
+</fieldset>
+
+
+<script>
+
+
+
+
+function concat(){
+	const txt = document.getElementById("txt").innerText;
+	const coc = ("!");
+	const dic = txt.concat(coc);
+	document.getElementById("txt").innerHTML = dic;
+	
+}
+
+
+
+</script>
+
+</body>
+</html>
