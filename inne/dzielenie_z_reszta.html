@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+*{
+padding: 0px;
+margin: 0px;
+align: center;
+text-align: center;
+
+}
+input{
+width: 3%;
+}
+a{
+font-family: fantasy;
+}
+#div1{
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+<div id="div1">
+<h1>Dzielenie z resztą</h1>
+<h2>Podaj dwie liczby całkowite</h2><br>
+<input id="num1" type="number" onchange="change()"><a> : <input id="num2" type="number"onchange="change()"> = 
+<input id="num3" type="number" readonly="true"> reszta </a><input id="num4" type="number" readonly="true"><br>
+</div>
+
+<script>
+
+function change()
+{
+
+var num1 = document.getElementById("num1").value;
+var num2 = document.getElementById("num2").value;
+
+var num3 = num1 / num2 ;
+document.getElementById("num3").value = Math.floor(num3);
+
+var num4 = num1 % num2 ;
+document.getElementById("num4").value = num4;
+
+
+}
+</script>
+
+</body>
+</html>

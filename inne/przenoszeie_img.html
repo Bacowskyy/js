@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+*{
+
+margin: 0px;
+align: center;
+
+
+
+}
+body{
+padding: 50px;
+}
+#div1, #div2, #div3, #div4 {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0px;
+  padding: 30px;
+  border: 1px solid black;
+  text-align: center;
+  display: block;
+  
+}
+
+#div5, #div6, #div7, #div8 {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0px;
+  padding: 30px;
+  border: 1px solid black;
+  text-align: center;
+  display: block; 
+  
+} 
+  
+</style>
+
+</head>
+
+
+<body>
+
+<h1> Kieszenie starego starterpack</h1>
+
+<table>
+
+<tr>
+<td id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="wd40.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="100px" height="100px">
+</td>
+
+<td id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="klucz.jpg" draggable="true" ondragstart="drag(event)" id="drag2" width="100px" height="100px">
+</td>
+	
+<td id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="100ml.jpg" draggable="true" ondragstart="drag(event)" id="drag3" width="100px" height="100px">
+</td>
+
+<td id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img src="srubokret.jpg" draggable="true" ondragstart="drag(event)" id="drag4" width="100px" height="100px">
+</td></tr>
+<br><br><br><br><br><br><br><br><br>
+
+<tr>
+<td id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</td>
+
+<td id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</td>
+
+<td id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</td>
+
+<td id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</td>
+</tr>
+
+</table>
+
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  
+  if(ev.target.tagName === "TD" && ev.target.childElementCount === 0){
+  ev.target.appendChild(document.getElementById(data));
+	}
+	
+}
+
+</script>
+
+</body>
+</html>
