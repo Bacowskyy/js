@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+.highlight {
+            color: red;
+        }
+  
+</style>
+
+</head>
+
+
+<body>
+
+<fieldset>
+	<legend>♣ Liczby trzycyfrowe ♣</legend>
+	<div id="cyfry"></div>
+</fieldset>
+    <h2><div id="wynik"></div></h2>
+
+<script>
+ function calculateDigitSum(number) {
+        return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+    }
+
+    function genCyfry() {
+        const cyfry = document.getElementById('cyfry');
+        cyfry.innerHTML = '';
+
+        let count = 0; // Licznik liczby liczb, których suma cyfr wynosi 10
+
+        for (let i = 100; i <= 999; i++) {
+            const digitSum = calculateDigitSum(i);
+
+            const numberElement = document.createElement('span');
+            numberElement.textContent = i;
+
+            if (digitSum === 10) {
+                numberElement.classList.add('highlight');
+                count++;
+            }
+
+            cyfry.appendChild(numberElement);
+
+            if (i < 999) {
+                const separatorElement = document.createElement('span');
+                separatorElement.textContent = ', ';
+                cyfry.appendChild(separatorElement);
+            }
+        }
+
+        // Wyświetl informację o liczbie liczb, których suma cyfr wynosi 10
+        const wynik = document.getElementById('wynik');
+        wynik.textContent = `Liczba liczb, których suma cyfr wynosi 10, to: ${count}.`;
+    }
+
+    window.onload = genCyfry;
+</script>
+
+</body>
+</html>
