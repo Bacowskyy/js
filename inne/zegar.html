@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+
+
+
+#frame
+{
+width: 18%;
+height: 20%;
+border: 1px solid black;
+border-radius: 10px;
+text-align: center;
+align: center;
+margin-top: 10px;
+margin-left: 10px;
+margin: 0px;
+padding: 0px;
+}
+
+img
+{
+width: 90%;
+height: 90%;
+}
+
+#h3v1
+{
+padding: 0px;
+margin: 10px;
+margin-top: 10px;
+margin-left: 9px;
+}
+
+#hour_input
+{
+width: 8%;
+height: 6%;
+border: 1px solid black;
+border-radius: 10px;
+text-align: center;
+padding: 6px;
+margin-left: 0%;
+position: absolute;
+size: auto;
+}
+
+#minute_input
+{
+width: 8%;
+height: 6%;
+border: 1px solid black;
+border-radius: 10px;
+text-align: center;
+padding: 6px;
+margin-left: 9.3%;
+position: absolute;
+size: auto;
+}
+
+#clock 
+{
+width: 200px;
+height: 200px;
+border: 3px solid black;
+border-radius: 50%;
+position: relative;
+margin-top: 5%;
+margin-left: 65px;
+}
+
+.hand 
+{
+position: absolute;
+background-color: black;
+transform-origin: center bottom;
+left: 50%;
+}
+	
+#hours_hand 
+{
+width: 4px;
+ height: 50px;
+ top: 50%;
+transform: translate(-50%, -100%) rotate(0deg);
+}
+
+#minutes_hand 
+{
+width: 2px;
+height: 80px;
+top: 50%;
+transform: translate(-50%, -100%) rotate(0deg);
+}
+
+#frame_in_out
+{
+width: 8%;
+height: 6%;
+border: 1px solid black;
+border-radius: 10px;
+text-align: center;
+padding: 2px;
+margin-left: 80px;
+margin-top: 2%;
+size: auto;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<h3 id="h3v1">Miara kąta między wskazówkami zegara</h3>
+<div id="frame">
+<p>Miarę kąta między wskazówką minutową a godzinową można obliczyć według wzoru</p>
+<p><img src="task_689.png" alt="wzór"></p>
+</div>
+
+<br>
+
+
+
+<div id="hour_input">
+<label for="hours_range">Godziny [0, 11]</label>
+<br>
+<input id="hours_range" min="0" max="11" name="hours_range" type="range" value="0">
+<br>
+<output id="hours_output">0</output>
+</div>
+
+
+
+<div id="minute_input">
+<label for="minutes_range">Minuty [0, 60]</label>
+<br>
+<input id="minutes_range" min="0" max="60" name="minutes_range" type="range" value="0">
+<br>
+<output id="minutes_output">0</output>
+</div>
+
+
+<div id="clock">
+    <div id="hours_hand" class="hand" style="transform: translate(-50%, -100%) rotate(0deg);"></div>
+    <div id="minutes_hand" class="hand" style="transform: translate(-50%, -100%) rotate(0deg);"></div>
+</div>
+<div id="frame_in_out">
+    <label for="angle">Kąt</label>
+    <br>
+    <br>
+    <output id="angle">0°</output>
+</div>
+
+
+
+<script>
+	const hour = document.getElementById('hours_range');
+    const minute = document.getElementById('minutes_range');
+    const hoursOut = document.getElementById('hours_output');
+    const minutesOut = document.getElementById('minutes_output');
+    const hoursHand = document.getElementById('hours_hand');
+    const minutesHand = document.getElementById('minutes_hand');
+    const angleK = document.getElementById('angle');
+
+    function Clock() {
+        const hours = parseInt(hour.value);
+        const minutes = parseInt(minute.value);
+
+        const hoursAngle = (360 / 12) * hours + (360 / 12) * (minutes / 60);
+        const minutesAngle = (360 / 60) * minutes;
+
+        hoursHand.style.transform = `translate(-50%, -100%) rotate(${hoursAngle}deg)`;
+        minutesHand.style.transform = `translate(-50%, -100%) rotate(${minutesAngle}deg)`;
+
+        let angle = Math.abs(hoursAngle - minutesAngle);
+        angle = Math.min(angle, 360 - angle);
+
+        angleK.textContent = `${angle}°`;
+    }
+
+    hour.addEventListener('input', () => {
+        hoursOut.textContent = hour.value;
+        Clock();
+    });
+
+    minute.addEventListener('input', () => {
+        minutesOut.textContent = minute.value;
+        Clock();
+    });
+
+    Clock();
+</script>
+
+</body>
+</html>
