@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+body
+{
+
+}
+
+
+#bord
+{
+border: 2px solid black;
+height: 98%;
+width: 99%;
+background-color: lightgrey;
+position: absolute;
+text-align: center;
+}
+
+fieldset
+{
+border: 2px dotted black;
+margin-top: 20px;
+}
+
+input
+{
+margin-top: 20px;
+}
+
+#sub
+{
+margin-left: 50px;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="bord">
+<br><br>
+<a>Znajdź liczby palindromiczne, czyli które, przy czytaniu z lewej do prawej o odwrotnie są jednakowe</a>
+<br>
+
+<form>
+
+<input type="radio" name="rad" id="dwa">Dwucyfrowe</input>
+<input type="radio" name="rad" id="trzy">Trzycyfrowe</input>
+<input type="radio" name="rad" id="cztery">Czerocyfrowe</input>
+<input type="radio" name="rad" id="piec">Pięciocyfrowe</input>
+
+<input type="button" id="sub" value="Znajź" onclick="onClick()">
+
+</form>
+
+<br>
+<fieldset>
+<legend>Liczby palindromiczne</legend>
+
+<a id="fin"></a>
+	
+</fieldset>
+    
+</div>
+
+<script>
+
+function onClick()
+{
+const dwa = document.getElementById('dwa').checked;
+const trzy = document.getElementById('trzy').checked;;
+const cztery = document.getElementById('cztery').checked;;
+const piec = document.getElementById('piec').checked;;
+
+
+if(dwa == true)
+{
+	
+	
+	for (let i = 10; i < 100; i++)
+	{
+	console.log(dwa);
+	let liczba = i.toString();
+	let liczba_od = liczba.split('').reverse.join('');
+	
+	document.getElementById('fin').innerHTML=liczba_od;
+	}
+}
+
+
+if(trzy == true)
+{
+	console.log(trzy);
+}
+
+
+if(cztery == true)
+{
+	console.log(cztery);
+}
+
+
+if(piec == true)
+{
+	console.log(piec);
+}
+
+
+
+	
+}
+ 
+ 
+ 
+</script>
+
+</body>
+</html>
