@@ -66,6 +66,8 @@ margin-left: 50px;
 	
 </fieldset>
     
+<a id="ile"></a>
+	
 </div>
 
 <script>
@@ -78,44 +80,136 @@ const cztery = document.getElementById('cztery').checked;;
 const piec = document.getElementById('piec').checked;;
 
 
+////////////////////////////////////////////////////////////
+
 if(dwa == true)
 {
-	
-	
-	for (let i = 10; i < 100; i++)
+	function generuj() 
 	{
-	console.log(dwa);
-	let liczba = i.toString();
-	let liczba_od = liczba.split('').reverse.join('');
-	
-	document.getElementById('fin').innerHTML=liczba_od;
+		let wynik = "";
+		let ile = 0;
+		for (let i = 10; i < 100; i++) 
+		{
+			if (czyGit(i)) 
+			{
+				wynik += i + ", ";
+				ile++;
+			}
+		}
+		wynik = wynik.slice(0, -2);
+		document.getElementById("fin").innerText = wynik;
+		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
 	}
+
+	function czyGit(num) 
+	{
+		const cyfra = num.toString();
+		const cyfra_od = cyfra.split('').reverse().join('');
+		return cyfra === cyfra_od;
+	}
+
+	generuj();
+
 }
 
+////////////////////////////////////////////////////////////
 
 if(trzy == true)
 {
-	console.log(trzy);
+	function generuj() 
+	{
+		let wynik = "";
+		let ile = 0;
+		for (let i = 100; i < 1000; i++) 
+		{
+			if (czyGit(i)) 
+			{
+				wynik += i + ", ";
+				ile++;
+			}
+		}
+		wynik = wynik.slice(0, -2);
+		document.getElementById("fin").innerText = wynik;
+		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+	}
+
+	function czyGit(num) 
+	{
+		const cyfra = num.toString();
+		const cyfra_od = cyfra.split('').reverse().join('');
+		return cyfra === cyfra_od;
+	}
+
+	generuj();
+
 }
 
+////////////////////////////////////////////////////////////
 
 if(cztery == true)
 {
-	console.log(cztery);
+	function generuj() 
+	{
+		let wynik = "";
+		let ile = 0;
+		for (let i = 1000; i < 10000; i++) 
+		{
+			if (czyGit(i)) 
+			{
+				wynik += i + ", ";
+				ile++;
+			}
+		}
+		wynik = wynik.slice(0, -2);
+		document.getElementById("fin").innerText = wynik;
+		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+	}
+
+	function czyGit(num) 
+	{
+		const cyfra = num.toString();
+		const cyfra_od = cyfra.split('').reverse().join('');
+		return cyfra === cyfra_od;
+	}
+
+	generuj();
+
 }
 
+////////////////////////////////////////////////////////////
 
 if(piec == true)
 {
-	console.log(piec);
+	function generuj() 
+	{
+		let wynik = "";
+		let ile = 0;
+		for (let i = 10000; i < 100000; i++) 
+		{
+			if (czyGit(i)) 
+			{
+				wynik += i + ", ";
+				ile++;
+			}
+		}
+		wynik = wynik.slice(0, -2);
+		document.getElementById("fin").innerText = wynik;
+		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+	}
+
+	function czyGit(num) 
+	{
+		const cyfra = num.toString();
+		const cyfra_od = cyfra.split('').reverse().join('');
+		return cyfra === cyfra_od;
+	}
+
+	generuj();
+
 }
-
-
 
 	
 }
- 
- 
  
 </script>
 
