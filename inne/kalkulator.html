@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<!-- border inset ZRÓB -->
+
+<style>
+
+*
+{
+	
+}
+
+
+table, td, tr
+{
+  border: 1px solid black;
+  
+}
+
+table 
+{
+  border-collapse: collapse;
+  width: 250px;
+  height: 300px;
+  margin: 100px;
+  
+}
+
+tr 
+{
+	padding: 0px;
+	margin: 0px;
+	height: 50px;
+	width: 50px;
+}
+
+
+
+#left
+{
+	height: 150px;
+	width: 50px;
+	border: 0px solid black;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+#dane
+{
+	border: 1px solid black;
+	background-color: lightgray;
+	padding: 0px;
+	margin: 2px;
+	width: 240px;
+	height: 40px;
+	border-collapse: none;
+}
+
+#wynik
+{
+	border: 1px solid black;
+	background-color: white;
+	padding: 0px;
+	margin: 2px;
+	width: 240px;
+	height: 40px;
+	border-collapse: none;
+}
+
+
+#cyfry
+{
+	height: 45px;
+	width: 45px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: none;
+	background-color: gray;
+}
+
+#cyfry_c
+{
+	height: 50px;
+	width: 50px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: none;
+	background-color: white;
+	text-align: center;
+	padding-top: 0px;
+}
+
+.typy
+{
+	height: 45px;
+	width: 45px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: none;
+	background-color: lightgray;
+}
+
+#rownanie
+{
+	height: 45px;
+	width: 95px;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid black;
+	background-color: lightgray;
+}
+
+#cyfry_r
+{
+	height: 50px;
+	width: 100px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: none;
+	background-color: white;
+	text-align: center;
+	padding-top: 0px;
+}
+
+.kasuj
+{
+	height: 45px;
+	width: 45px;
+	margin: 0px;
+	padding: 0px;
+	border-collapse: none;
+	background-color: red;
+	color: white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<table>
+<tbody>
+
+  <tr>
+    <td colspan="5"> <p id="dane"></p> </td>																<!-- Wpisz    -->
+  </tr>
+
+
+  <tr>
+    <td colspan="5"> <p id="wynik"></p> </td>																<!-- Otrzymaj wynik    -->
+  </tr>
+  <tr>
+    <td id="left" rowspan="3"></td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="7"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="8"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="9"> </td>
+    <td id="cyfry_c"> <input type="button" name="typy" value="%"> </td>
+  </tr>
+  
+  
+  <tr>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="4"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="5"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="6"> </td>
+    <td id="cyfry_c"> <input type="button" name="typy" value="X"> </td>
+  </tr>
+  
+  
+  <tr>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="1"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="2"> </td>
+    <td id="cyfry_c"> <input type="button" id="cyfry" value="3"> </td>
+    <td id="cyfry_c"> <input type="button" name="typy" value="-"> </td>
+  </tr>
+  <tr>
+    <td id ="cyfry_c"> <input type="button" name="kasuj" value="C"></p></td>
+    <td id="cyfry_c"> <input type="button" name="cyfry" value="0"> </td>
+    <td id="cyfry_r" colspan="2"> <input type="button" id="rownanie" value="="> </td>
+    <td id="cyfry_c"> <input type="button" name="typy" value="+"> </td>
+  </tr>
+</tbody>
+</table>
+
+
+<script>
+
+
+</script>
+
+</body>
+</html>

@@ -13,28 +13,53 @@ body
 #bord
 {
 border: 2px solid black;
-height: 98%;
-width: 99%;
-background-color: lightgrey;
+height: auto;
+width: 93.5%;
 position: absolute;
-text-align: center;
+text-align: ;
+padding-left: 20px;
+padding-right: 20px;
+padding-top:3%;
+padding-bottom:3%;
+margin-top: 0px;
 }
 
 fieldset
 {
 border: 2px dotted black;
 margin-top: 20px;
+text-align: center;
+align: center;
+padding-left: 0px;
+padding-right: 5px;
+margin-left: 5px;
+margin-right: 0px;
+display: none;
 }
 
 input
 {
 margin-top: 20px;
+margin-left: 0px;
+margin-right: 5px;
+}
+
+#trzy, #cztery, #piec
+{
+margin-left: 20px;
+margin-right: 5px;
 }
 
 #sub
 {
-margin-left: 50px;
+margin-left: 40px;
+float: right;
 
+}
+
+#ile2
+{
+font-weight: bold;
 }
 </style>
 
@@ -43,8 +68,8 @@ margin-left: 50px;
 <body>
 
 <div id="bord">
-<br><br>
-<a>Znajdź liczby palindromiczne, czyli które, przy czytaniu z lewej do prawej o odwrotnie są jednakowe</a>
+
+<a>Znajdź liczby palindromiczne, czyli które, przy czytaniu z lewej do prawej o odwrotnie są jednakowe.</a>
 <br>
 
 <form>
@@ -59,14 +84,14 @@ margin-left: 50px;
 </form>
 
 <br>
-<fieldset>
+<fieldset id="field">
 <legend>Liczby palindromiczne</legend>
 
 <a id="fin"></a>
 	
 </fieldset>
-    
-<a id="ile"></a>
+<br>
+<a id="ile1"></a> <a id="ile2"></a>
 	
 </div>
 
@@ -98,7 +123,9 @@ if(dwa == true)
 		}
 		wynik = wynik.slice(0, -2);
 		document.getElementById("fin").innerText = wynik;
-		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+		document.getElementById("ile1").innerText = "Liczb palindromicznych dwucyfrowych jest: ";
+		document.getElementById("ile2").innerText = ile;
+		document.getElementById("field").style.display = "block" ;
 	}
 
 	function czyGit(num) 
@@ -130,7 +157,9 @@ if(trzy == true)
 		}
 		wynik = wynik.slice(0, -2);
 		document.getElementById("fin").innerText = wynik;
-		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+		document.getElementById("ile1").innerText = "Liczb palindromicznych trzycyfrowych jest: ";
+		document.getElementById("ile2").innerText = ile;
+		document.getElementById("field").style.display = "block" ;
 	}
 
 	function czyGit(num) 
@@ -162,7 +191,9 @@ if(cztery == true)
 		}
 		wynik = wynik.slice(0, -2);
 		document.getElementById("fin").innerText = wynik;
-		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+		document.getElementById("ile1").innerText = "Liczb palindromicznych czterocyfrowych jest: ";
+		document.getElementById("ile2").innerText = ile;
+		document.getElementById("field").style.display = "block" ;
 	}
 
 	function czyGit(num) 
@@ -194,7 +225,9 @@ if(piec == true)
 		}
 		wynik = wynik.slice(0, -2);
 		document.getElementById("fin").innerText = wynik;
-		document.getElementById("ile").innerText = "Jest "+ile+" dwucyfrowych liczb palindromicznych";
+		document.getElementById("ile1").innerText = "Liczb palindromicznych pięciocyfrowych jest: ";
+		document.getElementById("ile2").innerText = ile;
+		document.getElementById("field").style.display = "block" ;
 	}
 
 	function czyGit(num) 
