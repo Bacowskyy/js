@@ -163,7 +163,7 @@ tr
     <td id="cyfry_c"> <input onclick="cyfra('7')" type="button" id="cyfry" value="7"> </td>
     <td id="cyfry_c"> <input onclick="cyfra('8')" type="button" id="cyfry" value="8"> </td>
     <td id="cyfry_c"> <input onclick="cyfra('9')" type="button" id="cyfry" value="9"> </td>
-    <td id="cyfry_c"> <input onclick="cyfra('%')" type="button" class="typy" value="%"> </td>
+    <td id="cyfry_c"> <input onclick="cyfra('/')" type="button" class="typy" value="%"> </td>
   </tr>
   
   
@@ -198,9 +198,9 @@ var wynikElement = document.getElementById('wynik');
 
     function cyfra(value) 
 	{
-		if (dane === '' && (value === '*' || value === '%' || value === '+')) 
+		if (dane === '' && (value === '*' || value === '/' || value === '+')) 
 		{
-        alert('Pierwszy znak nie może być * , % lub +');
+        alert('Pierwszy znak nie może być * , / lub +');
         return;
 		}
     dane += value;

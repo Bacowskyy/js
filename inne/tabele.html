@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+<input type="button" onclick="tab1()" value="Pętla for (JS) + lista 1 2 3 (HTML)">
+<input type="button" onclick="tab2()" value="Pętla for of (JS) + lista a b c (HTML)">
+<input type="button" onclick="tab3()" value="Pętla forEach (JS) + lista I II III (HTML)">
+
+
+<script>
+
+const dane = ["niedźwiedź", "nietoperz", "łasica", "żubr", "dzięcioł", "łoś"];
+
+function tab1()
+{
+	let x = dane.length;
+	const ol = document.createElement("ol");
+	
+	for (let i = 1; i <= x; i++)
+	{	
+		const wynik = document.createElement("li");
+		wynik.innerText = dane[i-1];
+		ol.appendChild(wynik);
+		
+	}
+	document.body.appendChild(ol);
+}
+
+function tab2()
+{
+	let x = dane.length;
+	const ol = document.createElement("ol")//.style.list-style-type = "lower-alpha";
+	ol.type="a";
+	
+	for (let i = 1; i <= x; i++)
+	{	
+		const wynik = document.createElement("li");
+		wynik.innerText = dane[i-1];
+		ol.appendChild(wynik);
+		
+	}
+	document.body.appendChild(ol);
+}
+
+
+ 
+</script>
+
+</body>
+</html>

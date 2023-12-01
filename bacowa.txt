@@ -1,0 +1,59 @@
+<script>
+    let expressionDisplay = document.getElementById('expressionDisplay');
+    let resultDisplay = document.getElementById('resultDisplay');
+    let buttons = document.querySelectorAll('button');
+    let isCalculating = false;
+    let firstNumber = '';
+    let currentExpression = '';
+
+    function disableButtons() {
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+
+    function enableButtons() {
+        buttons.forEach(button => {
+            button.disabled = false;
+        });
+    }
+
+    function appendToDisplay(value) {
+        if (!firstNumber) {
+            currentExpression += value;
+            expressionDisplay.value = currentExpression;
+        } else {
+            expressionDisplay.value = value;
+            firstNumber = '';
+        }
+    }
+
+    function clearDisplay() {
+        expressionDisplay.value = '';
+        resultDisplay.value = '';
+        firstNumber = '';
+        currentExpression = '';
+    }
+
+    function calculateResult() {
+        if (isCalculating) {
+            return;
+        }
+
+        try {
+            isCalculating = true;
+            disableButtons();
+
+            let expression = currentExpression.replace(/÷/g, '/').replace(/✖/g, '*');
+            resultDisplay.value = eval(expression);
+            firstNumber = resultDisplay.value;
+
+            expressionDisplay.value += ' =';
+        } catch (error) {
+            resultDisplay.value = 'Error!';
+        } finally {
+            isCalculating = false;
+            enableButtons();
+        }
+    }
+</script>
