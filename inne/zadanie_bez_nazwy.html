@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<meta charset="utf-8">
+<head>
+
+
+<style>
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+#megadiv
+{
+	width: auto;
+	height: auto;
+	
+	border-width: 5px;
+	border-color: red;
+	border-style: double;
+	
+	margin: 0.5%;
+	##position: absolute;
+	padding: 0px;
+}
+
+#sec1
+{
+	border: 1px solid green;
+	margin: 1.1%;
+	
+	
+	padding: 0px;
+	##position: absolute;
+	
+	width: auto;
+	height: auto;
+	
+}
+
+#sec2
+{
+	display: none;
+	border: 1px solid blue;
+	margin: 1.1%;
+	
+	
+	padding: 0px;
+	
+	
+	width: auto;
+	height: auto;
+	
+	margin-top: 1%;
+	
+	
+}
+
+#butt
+{
+	text-align: center;
+	background-color: lightgreen;
+	border-color: green;
+	border-style: solid;
+	border-width: 1px;
+	position: absoulute;
+	margin: 1.1%;
+	margin-left: 10%;	
+	padding: 0%;
+	font-family: Calibri;
+	font-size: 16px;
+	
+	height: 200px;
+	width: 200px;
+}
+
+
+
+#odp1
+{
+	border-color: blue;
+	border-style: solid;
+	border-width: 1px;
+	background-color: lightblue;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 1.1%;
+	margin-left: 10%;
+	margin-top: 0%;
+	width: 188px;
+	height: auto;
+	text-align: left;
+	display: none;
+	
+}
+
+#odp2
+{
+	border-color: blue;
+	border-style: solid;
+	border-width: 1px;
+	background-color: lightblue;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 1.1%;
+	margin-left: 32%;
+	margin-top: 0%;
+	width: 188px;
+	height: auto;
+	text-align: left;
+	display: none;
+	
+}
+
+#odp3
+{
+	border-color: blue;
+	border-style: solid;
+	border-width: 1px;
+	background-color: lightblue;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 1.1%;
+	margin-left: 54.3%;
+	margin-top: 0%;
+	width: 188px;
+	height: auto;
+	text-align: left;
+	display: none;
+	
+}
+
+#odp4
+{
+	border-color: blue;
+	border-style: solid;
+	border-width: 1px;
+	background-color: lightblue;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 1.1%;
+	margin-left: 76.5%;
+	margin-top: 0%;
+	width: 188px;
+	height: auto;
+	text-align: left;
+	display: none;
+	
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="megadiv">
+
+<section id="sec1">
+<input type="button" id="butt" onclick="click1()" value="Oryginalna lista imion">
+<input type="button" id="butt" onclick="click2()" value="Wszystkie litery małe">
+<input type="button" id="butt" onclick="click3()" value="Pierwsza litera wielka">
+<input type="button" id="butt" onclick="click4()" value=" Tyle gwiazdek ile liter">
+</section>
+
+<section id="sec2"><br>
+<div id="div_odp1"><p id="odp1"></p></div>
+<div id="div_odp2"><p id="odp2"></p></div>
+<div id="div_odp3"><p id="odp3"></p></div>
+<div id="div_odp4"><p id="odp4"></p></div>
+</section>
+
+</div>
+
+
+<script>
+
+const dane = ["Marcin", "Ania", "Monika", "Piotr", "Beata", "ania", "marcin", "piotr", "PIOTR", "ANIA", "MONIKA"];
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function click1()
+{
+	let x = dane.length;
+	let text = "";
+	
+	for (let i = 0; i <= x-1; i++)
+	{	
+		text += dane[i] + "<br>";
+		document.getElementById("odp1").innerHTML = text;
+	}
+	
+	document.getElementById('sec2').style.display = "block";
+	document.getElementById('odp1').style.display = "block";
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function click2()
+{
+	let x = dane.length;
+	let text = "";
+	
+	
+	for (let i = 0; i <= x-1; i++)
+	{	
+		const fix = dane[i].toLowerCase();
+		text += fix + "<br>";
+		document.getElementById("odp2").innerHTML = text;
+	}
+	
+	document.getElementById('sec2').style.display = "block";
+	document.getElementById('odp2').style.display = "block";
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function click3()
+{
+	let x = dane.length;
+	let text = "";
+	
+	
+	for (let i = 0; i <= x-1; i++)
+	{	
+		const fix = dane[i].toUpperCase();
+		text += fix + "<br>";
+		document.getElementById("odp3").innerHTML = text;
+	}
+	
+	document.getElementById('sec2').style.display = "block";
+	document.getElementById('odp3').style.display = "block";
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function click4()
+{
+	let x = dane.length;
+	let text = "";
+	
+	
+	for (let i = 0; i <= x-1; i++)
+	{
+		const dlug = dane[i].length;
+		const fix = "*".repeat(dlug);
+		text += fix + "<br>";
+		document.getElementById("odp4").innerHTML = text;
+	}
+	
+	document.getElementById('sec2').style.display = "block";
+	document.getElementById('odp4').style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
