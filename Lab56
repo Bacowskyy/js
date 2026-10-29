@@ -1,0 +1,82 @@
+class NiepoprawnaOcenaException extends Exception {
+    public NiepoprawnaOcenaException(String message) {
+        super(message);
+    }
+}
+
+public class Oceny {
+    
+    public static void sprawdzOcene(int ocena) throws NiepoprawnaOcenaException {
+        if (ocena < 2 || ocena > 5) {
+            throw new NiepoprawnaOcenaException("ocena spoza zakresu 2-5: " + ocena);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] tablicaOcen = {4, 7, 3, 1};
+        int poprawne = 0;
+
+        
+        int sprawdzone = 0;
+
+        for (int ocena : tablicaOcen) {
+            try {
+                sprawdzOcene(ocena);
+                poprawne++; // Zliczanie poprawnych ocen w bloku try
+                System.*out*.println("Ocena " + ocena + ": poprawna");
+            } catch (NiepoprawnaOcenaException e) {
+                System.*out*.println("Ocena " + ocena + ": błąd, " + e.getMessage());
+            } finally {
+                sprawdzone++; // Zliczanie wszystkich sprawdzonych ocen w bloku finally
+            }
+        }
+
+        System.*out*.println("Sprawdzono ocen: " + sprawdzone + ", poprawnych: " + poprawne);
+    }
+}
+
+!!!!!!!!!!!!!!!!!!!!!!!!!
+
+import java.util.Arrays;
+import java.util.Locale;
+
+public class Temperatury {
+    public static void main(String[] args) {
+        // 1. Deklaracja tablicy i wypisanie jej
+        int[] temperatury = {12, 15, 9, 18, 21, 17, 14};
+        System.out.println("Temperatury: " + Arrays.toString(temperatury));
+
+        // 2. Wyznaczenie najniższej, najwyższej temperatury oraz sumy w jednej pętli
+        int najnizsza = temperatury[0];
+        int najwyzsza = temperatury[0];
+        int suma = 0;
+
+        for (int t : temperatury) {
+            if (t < najnizsza) {
+                najnizsza = t;
+            }
+            if (t > najwyzsza) {
+                najwyzsza = t;
+            }
+            suma += t;
+        }
+
+        System.out.println("Najniższa: " + najnizsza + ", najwyższa: " + najwyzsza);
+
+        // Obliczenie średniej typu double i wypisanie z jednym miejscem po przecinku (zgodnie z polską lokalizacją)
+        double srednia = (double) suma / temperatury.length;
+        System.out.printf(new Locale("pl", "PL"), "Średnia: %.1f%n", srednia);
+
+        // 3. Kopiowanie metodą clone(), sortowanie i wypisanie
+        int[] posortowane = temperatury.clone();
+        Arrays.sort(posortowane);
+        System.out.println("Posortowane: " + Arrays.toString(posortowane));
+
+        // 4. Utworzenie tablicy z trzema najwyższymi temperaturami metodą Arrays.copyOfRange
+        int[] trzyNajwyzsze = Arrays.copyOfRange(posortowane, posortowane.length - 3, posortowane.length);
+        System.out.println("Trzy najwyższe: " + Arrays.toString(trzyNajwyzsze));
+
+        // 5. Wypisanie oryginalnej tablicy (zawartość nie zmieniła się)
+        System.out.println("Oryginał: " + Arrays.toString(temperatury));
+    }
+}
