@@ -1,0 +1,88 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.Locale;
+
+public class RaportOcen {
+    public static void main(String[] args) {
+
+        Path plik = Path.of("oceny.txt");
+
+        if (!Files.exists(plik)) {
+            System.out.println("Brak pliku oceny.txt");
+            return;
+        }
+
+        int liczbaStudentow = 0;
+        int niedostateczne = 0;
+        double sumaOcen = 0;
+        double najwyzszaOcena = 0;
+        String najlepszyStudent = "";
+
+        try (BufferedReader br = Files.newBufferedReader(plik)) {
+            String linia;
+
+            while ((linia = br.readLine()) != null) {
+                String[] czesci = linia.split(";");
+
+                String student = czesci[0];
+                double ocena = Double.parseDouble(czesci[1]);
+
+                liczbaStudentow++;
+                sumaOcen += ocena;
+
+                if (ocena == 2.0) {
+                    niedostateczne++;
+                }
+
+                if (liczbaStudentow == 1 || ocena > najwyzszaOcena) {
+                    najwyzszaOcena = ocena;
+                    najlepszyStudent = student;
+                }
+            }
+
+            System.out.println("Wczytano ocen: " + liczbaStudentow);
+
+        } catch (IOException e) {
+            System.out.println("Błąd odczytu pliku.");
+            return;
+        }
+
+        double srednia = sumaOcen / liczbaStudentow;
+
+        Path katalog = Path.of("raporty");
+        Path raport = katalog.resolve("raport.txt");
+
+        try {
+            Files.createDirectories(katalog);
+
+            try (PrintWriter pw = new PrintWriter(
+                    Files.newBufferedWriter(raport))) {
+
+                pw.println("RAPORT OCEN");
+                pw.println("Liczba studentów: " + liczbaStudentow);
+                pw.printf(Locale.getDefault(), "Średnia ocen: %.2f%n", srednia);
+                pw.println("Oceny niedostateczne: " + niedostateczne);
+                pw.printf(Locale.getDefault(), "Najlepszy wynik: %s (%.1f)%n",
+                        najlepszyStudent, najwyzszaOcena);
+            }
+
+            System.out.println("Zapisano raport: " + raport);
+
+            List<String> zawartosc = Files.readAllLines(raport);
+
+            System.out.println("--- zawartość raportu ---");
+
+            for (String wiersz : zawartosc) {
+                System.out.println(wiersz);
+            }
+
+        } catch (IOException e) {
+            System.out.println("Błąd zapisu lub odczytu raportu.");
+        }
+    }
+}
