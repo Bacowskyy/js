@@ -1,0 +1,35 @@
+
+import java.io.*;
+
+public class ListaZakupow {
+    public static void main(String[] args) {
+        try {
+            try (PrintWriter zapis = new PrintWriter("zakupy.txt", "UTF-8")) {
+                zapis.println("chleb");
+                zapis.println("masło");
+                zapis.println("jabłka");
+                zapis.println("mleko");
+            }
+
+            System.out.println("Zapisano plik zakupy.txt");
+
+            int licznik = 0;
+
+            try (BufferedReader odczyt = new BufferedReader(
+                    new FileReader("zakupy.txt", java.nio.charset.StandardCharsets.UTF_8))) {
+
+                String produkt;
+
+                while ((produkt = odczyt.readLine()) != null) {
+                    licznik++;
+                    System.out.println(licznik + ". " + produkt);
+                }
+            }
+
+            System.out.println("Liczba produktów: " + licznik);
+
+        } catch (IOException e) {
+            System.out.println("Wystąpił błąd: " + e.getMessage());
+        }
+    }
+}
